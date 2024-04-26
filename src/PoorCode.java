@@ -225,37 +225,14 @@ String out = "[";
 	}
 	
 	public static int howMany(boolean f, boolean t, boolean k, boolean z) {
-		if(f == true) {
-			if(k == false) {
-				if(z && t)
-					return 3;
-				if(z || t)
-					return 2;
-				return 1;
-			}
-			else {
-				if(z == true) {
-					if(t) return 4;
-					else return 3;
-				}
-				if(t == true) {
-					if(z) return 4;
-					else return 3;
-				}
-				else return 2; 
+		boolean[] vars = {f, t, k, z};
+		int count = 0;
+		for (int i = 0; i < vars.length; i++) {
+			if(vars[i] == true) {
+				count++;
 			}
 		}
-		if(k && t && z) {
-			return 3;
-		}
-		if(k || z || t) {
-			int number = 0;
-			if(k && z) number = number + 2;
-			else if(z || k) number ++;
-			number+=(t?1:0);
-			return number;
-		}
-		return 0;
+		return count;
 	}
 	
 }
